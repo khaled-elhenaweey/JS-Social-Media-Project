@@ -8,7 +8,45 @@
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </head>
 <body>
+<div class="container mb-5">
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Tarmeez Project</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Profile</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
 
+              <button class="btn btn-outline-success me-2">login</button>
+              <button class="btn btn-outline-success">register</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+</div>
+<div class="container">
+    <div class="card mb-3">
+        <div class="card-header">
+
+            <img src="./assets/images/user-holder.png" class="rounded-circle" alt="card-img">
+         <span class="fw-bold">@username</span>
+        </div>
+        <div class="card-body">
+            <img src="./assets/images/card-holder.png" class="card-img-top" alt="card-img">
+          <h5 class="card-title">2 min</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        </div>
+      </div>
+</div>
     <script src="./assets/js/home.js"></script>
 </body>
 </html>
