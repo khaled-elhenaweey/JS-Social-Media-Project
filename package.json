@@ -9,6 +9,7 @@
   "author": "khaled elhenaweey",
   "license": "ISC",
   "dependencies": {
-    "axios": "^1.7.2"
+    "axios": "^1.7.2",
+    "bootstrap": "^5.3.3"
   }
 }
