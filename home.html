@@ -9,6 +9,7 @@
 
 </head>
 <body>
+    <!-- header -->
 <div class="container mb-5">
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
@@ -26,19 +27,70 @@
               </li>
             </ul>
             <form class="d-flex" role="search">
+<div class="login d-flex">
+    <button class="btn btn-outline-success me-2"  data-bs-toggle="modal" data-bs-target="#loginModal">login</button>
+    <button class="btn btn-outline-success">register</button>
+</div>
+<div class="logout d-none">
+    <button class="btn btn-outline-danger " onclick="userLogout()">logout</button>
 
-              <button class="btn btn-outline-success me-2">login</button>
-              <button class="btn btn-outline-success">register</button>
+</div>
+             
             </form>
           </div>
         </div>
       </nav>
 </div>
-
+<!--posts container  -->
 <div class="container" id="postContainer">
+</div>
+
+<!-- modals -->
+<!-- login -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="loginModalLabel">New message</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">user name</label>
+            <input type="text" class="form-control"  value="7eno" id="loginUser">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">password</label>
+            <input type="text" class="form-control" value="123456" id="loginPass">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancel</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="userLogin()">login</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- toast -->
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <span class="rounded bg-success p-1 me-2" alt="..."></span>
+      <strong class="me-auto toast-type">Bootstrap</strong>
+      <small>Just Now</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Hello, world! This is a toast message.
+    </div>
+  </div>
 </div>
 <script src="./node_modules/axios/dist/axios.min.js"></script>
 <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script> 
+
 
     <script src="./assets/js/home.js"></script>
 </body>
