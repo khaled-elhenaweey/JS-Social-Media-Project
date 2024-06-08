@@ -1,97 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.min.css"></link> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
+  </link>
 
 </head>
+
 <body>
-    <!-- header -->
-<div class="container mb-5">
+  <button class="btn btn-primary d-none" id="createPostBtn" type="button" data-bs-toggle="modal"
+  data-bs-target="#createPostModal">
+  <i class="bi bi-patch-plus"></i>
+</button>
+  <!-- header -->
+  <div class="container mb-5">
     <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Tarmeez Project</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarScroll">
-            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Profile</a>
-              </li>
-            </ul>
-            <form class="d-flex" role="search">
-<div class="login d-flex">
-    <button class="btn btn-outline-success me-2"  data-bs-toggle="modal" data-bs-target="#loginModal">login</button>
-    <button class="btn btn-outline-success">register</button>
-</div>
-<div class="logout d-none">
-    <button class="btn btn-outline-danger " onclick="userLogout()">logout</button>
-
-</div>
-             
-            </form>
-          </div>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Tarmeez Project</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+          aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+          <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Profile</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <div class="login d-flex">
+              <button class="btn btn-outline-success me-2" type="button" data-bs-toggle="modal"
+                data-bs-target="#loginModal">login</button>
+              <button class="btn btn-outline-success" type="button" data-bs-toggle="modal"
+                data-bs-target="#registerModal">register</button>
+            </div>
+            <div class="logout d-none">
+              <div class="user-info">
+              </div>
+              <button class="btn btn-outline-danger " onclick="userLogout()">logout</button>
+            </div>
+          </form>
         </div>
-      </nav>
-</div>
-<!--posts container  -->
-<div class="container" id="postContainer">
-</div>
+      </div>
+    </nav>
+  </div>
+  <!--posts container  -->
+  <div class="container" id="postContainer">
+  </div>
 
-<!-- modals -->
-<!-- login -->
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="loginModalLabel">New message</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">user name</label>
-            <input type="text" class="form-control"  value="7eno" id="loginUser">
-          </div>
-          <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">password</label>
-            <input type="text" class="form-control" value="123456" id="loginPass">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancel</button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="userLogin()">login</button>
+  <!-- modals -->
+  <!-- login -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="loginModalLabel">New message</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">user name</label>
+              <input type="text" class="form-control" value="7eno" id="loginUser">
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">password</label>
+              <input type="text" class="form-control" value="123456" id="loginPass">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancel</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="userLogin()">login</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<!-- toast -->
-
-<div class="toast-container position-fixed bottom-0 end-0 p-3">
-  <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-header">
-      <span class="rounded bg-success p-1 me-2" alt="..."></span>
-      <strong class="me-auto toast-type">Bootstrap</strong>
-      <small>Just Now</small>
-      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-    </div>
-    <div class="toast-body">
-      Hello, world! This is a toast message.
+  <!-- register -->
+  <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="registerModalLabel">New message</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">user name</label>
+              <input type="text" class="form-control" value="7eno10" id="registerUser">
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">name</label>
+              <input type="text" class="form-control" value="7eno10" id="registerName">
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">password</label>
+              <input type="text" class="form-control" value="123456" id="registerPass">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancel</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+            onclick="userRegister()">Register</button>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-<script src="./node_modules/axios/dist/axios.min.js"></script>
-<script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script> 
+  <!-- create post -->
+  <div class="modal fade" id="createPostModal" tabindex="-1" aria-labelledby="createPostModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="createPostModalLabel">New message</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">title</label>
+              <input type="text" class="form-control" value="7eno10" id="postTitle">
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">description</label>
+              <textarea type="text" class="form-control" value="7eno10" id="postInfo"></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">image</label>
+              <input type="file" class="form-control"  id="postImage">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancel</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+            onclick="createPost()">create</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- toast -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <span class="rounded bg-success p-1 me-2" alt="..."></span>
+        <strong class="me-auto toast-type">Bootstrap</strong>
+        <small>Just Now</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        Hello, world! This is a toast message.
+      </div>
+    </div>
+  </div>
 
 
-    <script src="./assets/js/home.js"></script>
+  <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="./node_modules/axios/dist/axios.min.js"></script>
+  <script src="./assets/js/home.js"></script>
 </body>
+
 </html>
